@@ -4,4 +4,5 @@
 <mapper namespace="com.sudytech.ddjt.mapper.THdxtHdsqMapper">
 
 
+    <select id="selectListBy" resultType="com.sudytech.ddjt.sdo.THdxtHdsq"></select>
 </mapper>
