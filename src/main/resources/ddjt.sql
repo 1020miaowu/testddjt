@@ -45,7 +45,7 @@ CREATE TABLE `t_hdxt_hdfl` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_hdxt_hdsq`;
 CREATE TABLE `t_hdxt_hdsq` (
-                               `id` int NOT NULL,
+                               `id` int NOT NULL COMMENT '活动申请id',
                                `processde` varchar(255) DEFAULT NULL COMMENT '流程定义名称',
                                `lcid` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '流程id',
                                `dqhjbz` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '当前环节步骤',

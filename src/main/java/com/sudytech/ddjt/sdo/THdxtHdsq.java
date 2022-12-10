@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 @TableName(value ="t_ddxt_hdsq")
 @Data
-public class TDdxtHdsq extends DefaultFormObject implements Serializable {
+public class THdxtHdsq extends DefaultFormObject implements Serializable {
     /**
      *  主键id
      */
@@ -113,7 +113,7 @@ public class TDdxtHdsq extends DefaultFormObject implements Serializable {
     @TableField(value = "hdzt")
     private String hdzt;
     /**
-     *  活动主题/标题
+     *  活动主题
      */
     @TableField(value = "hdbt")
     private String hdbt;

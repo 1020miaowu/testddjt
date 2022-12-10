@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * @author 尹文豪
+ * 活动分类表
  */
 public interface THdxtHdflService extends IService<THdxtHdfl> {
     List<MyQueryResult> queryDdjt();
