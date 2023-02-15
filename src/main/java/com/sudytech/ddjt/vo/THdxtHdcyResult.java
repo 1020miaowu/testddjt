@@ -2,6 +2,8 @@ package com.sudytech.ddjt.vo;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @author 尹文豪
  * 参与人员返回
@@ -12,6 +14,11 @@ public class THdxtHdcyResult {
      *  姓名
      */
     private String studentName;
+
+    /**
+     * userId
+     */
+    private Integer userId;
     /**
      *  学工号
      */
@@ -35,9 +42,9 @@ public class THdxtHdcyResult {
     /**
      *  签到时间
      */
-    private String checkInTime;
+    private Date checkInTime;
     /**
      *  签退时间
      */
-    private String outInTime;
+    private Date outInTime;
 }

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sudytech.ddjt.mapper.THdxtHdflMapper">
 
-    <select id="queryDdjt" resultType="com.sudytech.ddjt.vo.MyQueryResult">
+    <resultMap id="BaseResultMap" type="com.sudytech.ddjt.sdo.THdxtHdfl">
+            <id property="id" column="ID" jdbcType="INTEGER"/>
+            <result property="fldm" column="FLDM" jdbcType="VARCHAR"/>
+            <result property="flmc" column="FLMC" jdbcType="VARCHAR"/>
+            <result property="userid" column="USERID" jdbcType="INTEGER"/>
+            <result property="px" column="PX" jdbcType="INTEGER"/>
+            <result property="zt" column="ZT" jdbcType="VARCHAR"/>
+    </resultMap>
 
-    </select>
+    <sql id="Base_Column_List">
+        ID,FLDM,FLMC,
+        USERID,PX,ZT
+    </sql>
 </mapper>

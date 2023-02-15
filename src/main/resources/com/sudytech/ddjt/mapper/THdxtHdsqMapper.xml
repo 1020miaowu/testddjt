@@ -1,8 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sudytech.ddjt.mapper.THdxtHdsqMapper">
+
+    <resultMap id="BaseResultMap" type="com.sudytech.ddjt.sdo.THdxtHdsq">
+            <id property="id" column="ID" jdbcType="INTEGER"/>
+            <result property="processDeFid" column="PROCESSDEFID" jdbcType="VARCHAR"/>
+            <result property="businessId" column="BUSINESSID" jdbcType="INTEGER"/>
+            <result property="activityId" column="ACTIVITYID" jdbcType="INTEGER"/>
+            <result property="activitydefId" column="ACTIVITYDEFID" jdbcType="VARCHAR"/>
+            <result property="activityDefName" column="ACTIVITYDEFNAME" jdbcType="VARCHAR"/>
+            <result property="orgId" column="ORGID" jdbcType="INTEGER"/>
+            <result property="orgName" column="ORGNAME" jdbcType="VARCHAR"/>
+            <result property="orgCode" column="ORGCODE" jdbcType="VARCHAR"/>
+            <result property="classCode" column="CLASSCODE" jdbcType="VARCHAR"/>
+            <result property="classFName" column="CLASSFNAME" jdbcType="VARCHAR"/>
+            <result property="majorCode" column="MAJORCODE" jdbcType="VARCHAR"/>
+            <result property="majorName" column="MAJORNAME" jdbcType="VARCHAR"/>
+            <result property="applyUserId" column="APPLYUSERID" jdbcType="INTEGER"/>
+            <result property="applyUserName" column="APPLYUSERNAME" jdbcType="VARCHAR"/>
+            <result property="applyUserCode" column="APPLYUSERCODE" jdbcType="VARCHAR"/>
+            <result property="applyTime" column="APPLYTIME" jdbcType="TIMESTAMP"/>
+            <result property="phone" column="PHONE" jdbcType="VARCHAR"/>
+            <result property="status" column="STATUS" jdbcType="INTEGER"/>
+            <result property="xn" column="XN" jdbcType="VARCHAR"/>
+            <result property="hdflid" column="HDFLID" jdbcType="INTEGER"/>
+            <result property="hdzt" column="HDZT" jdbcType="VARCHAR"/>
+            <result property="hdbt" column="HDBT" jdbcType="VARCHAR"/>
+            <result property="hddd" column="HDDD" jdbcType="VARCHAR"/>
+            <result property="fzrmc" column="FZRMC" jdbcType="VARCHAR"/>
+            <result property="fzrlxdh" column="FZRLXDH" jdbcType="VARCHAR"/>
+            <result property="zjrmc" column="ZJRMC" jdbcType="VARCHAR"/>
+            <result property="zjrlxdh" column="ZJRLXDH" jdbcType="VARCHAR"/>
+            <result property="hdkssj" column="HDKSSJ" jdbcType="TIMESTAMP"/>
+            <result property="dhjssj" column="DHJSSJ" jdbcType="TIMESTAMP"/>
+            <result property="hdxct" column="HDXCT" jdbcType="VARCHAR"/>
+            <result property="hdgs" column="HDGS" jdbcType="VARCHAR"/>
+            <result property="fj" column="FJ" jdbcType="VARCHAR"/>
+            <result property="blr" column="BLR" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,PROCESSDEFID,BUSINESSID,
+        ACTIVITYID,ACTIVITYDEFID,ACTIVITYDEFNAME,
+        ORGID,ORGNAME,ORGCODE,
+        CLASSCODE,CLASSFNAME,MAJORCODE,
+        MAJORNAME,APPLYUSERID,APPLYUSERNAME,
+        APPLYUSERCODE,APPLYTIME,PHONE,
+        STATUS,XN,HDFLID,
+        HDZT,HDBT,HDDD,
+        FZRMC,FZRLXDH,ZJRMC,
+        ZJRLXDH,HDKSSJ,DHJSSJ,
+        HDXCT,HDGS,FJ,
+        BLR
+    </sql>
 
 
     <select id="selectListBy" resultType="com.sudytech.ddjt.sdo.THdxtHdsq"></select>
+    <!--    我参与的活动列表-->
+    <select id="queryDdjt" resultType="com.sudytech.ddjt.vo.MyQueryResult">
+        SELECT a.ID as id,
+               a.XN as xn,
+               a.HDBT as hdzt,
+               a.HDKSSK as hdkssj,
+               a.DHJSSJ as dhjssj,
+               a.HDDD as hddd,
+               b.USERID as userid,
+               b.QDSJ as qdsj
+        FROM T_HDXT_HDSQ a,
+             T_HDXT_HDCY b
+        WHERE a.ID = b.HDSQID
+          AND a.XN = #{xn,jdbcType=VARCHAR}
+          AND a.HDBT = #{hdbt,jdbcType=VARCHAR}
+          AND b.USERID = #{userid,jdbcType=VARCHAR}
+        ORDER BY a.HDKSSJ
+    </select>
 </mapper>

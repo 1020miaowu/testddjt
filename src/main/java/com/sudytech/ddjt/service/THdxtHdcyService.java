@@ -1,20 +1,20 @@
 package com.sudytech.ddjt.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.sudytech.base.mvc.TypedResult;
 import com.sudytech.ddjt.sdo.THdxtHdcy;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.sudytech.ddjt.vo.THdxtHdcyResult;
-
-import java.util.List;
-
+import com.sudytech.zhxg.student.vo.StudentInfoVO;
 
 /**
- * @author 尹文豪
- * 活动成员表
- */
+* @author sudy701
+* @description 针对表【T_HDXT_HDCY(活动成员)】的数据库操作Service
+* @createDate 2023-02-15 15:48:13
+*/
 public interface THdxtHdcyService extends IService<THdxtHdcy> {
 
-    /**
-     * 通过活动id查询参与成员信息
-     */
-    List<THdxtHdcyResult> obtainBySqId(Integer id);
+
+    TypedResult<THdxtHdcyResult> getCy(StudentInfoVO studentInfoVO,Integer hdsqId);
+
+    TypedResult<THdxtHdcyResult> signOut(StudentInfoVO studentInfoVO, Integer hdsqId);
 }

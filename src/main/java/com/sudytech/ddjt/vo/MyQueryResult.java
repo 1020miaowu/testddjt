@@ -9,6 +9,10 @@ import lombok.Data;
 @Data
 public class MyQueryResult {
     /**
+     *  id
+     */
+    private Integer id;
+    /**
      *  参与人员id
      */
     private Integer userid;
@@ -16,10 +20,6 @@ public class MyQueryResult {
      *  活动申请id
      */
     private Integer hdsqId;
-    /**
-     *  序号
-     */
-    private Integer sn;
     /**
      *  学年
      */
@@ -31,11 +31,11 @@ public class MyQueryResult {
     /**
      *  开始时间
      */
-    private String kssj;
+    private String hdkssj;
     /**
      *  结束时间
      */
-    private String jssj;
+    private String dhjssj;
     /**
      *  活动地点
      */
